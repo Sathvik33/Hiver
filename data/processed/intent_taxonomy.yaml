@@ -1,0 +1,130 @@
+intents:
+  - id: delivery_delay
+    name: Delivery Delay & Tracking
+    description: Customer asks about late package delivery, tracking status, or missing shipment.
+    positive_examples:
+      - "Where is my order? It was supposed to arrive yesterday."
+      - "My tracking number hasn't updated in 4 days."
+      - "Package says delivered but nothing is on my porch."
+    negative_examples:
+      - "I want to return this damaged item."
+      - "Can you cancel my Prime subscription?"
+    inclusion_rules: "Applies when inquiry pertains to logistics, delivery time, tracking number, or delayed package."
+    exclusion_rules: "Do not use if the customer received the item and wants a refund or return."
+
+  - id: return_and_refund
+    name: Return and Refund Request
+    description: Customer requests a refund, asks how to return an item, or reports refund not received.
+    positive_examples:
+      - "I returned the shoes two weeks ago, where is my refund?"
+      - "How do I return a damaged blender?"
+      - "I want my money back for this defective charger."
+    negative_examples:
+      - "My order is delayed, when will it arrive?"
+      - "Please cancel my order before it ships."
+    inclusion_rules: "Customer seeks return process, return label, or money back."
+    exclusion_rules: "Excludes cancellation of unshipped orders."
+
+  - id: order_cancellation
+    name: Order Cancellation
+    description: Customer wants to cancel an order, stop an accidental purchase, or cancel an item.
+    positive_examples:
+      - "Can you cancel order #10293? I ordered the wrong size."
+      - "I accidentally placed an order, please stop it immediately."
+      - "How do I cancel this pending order?"
+    negative_examples:
+      - "I want to cancel my Prime membership."
+      - "Can I return this received package?"
+    inclusion_rules: "Cancelling physical item or merchandise order prior to or during delivery."
+    exclusion_rules: "Excludes subscription cancellations."
+
+  - id: damaged_or_defective
+    name: Damaged or Defective Item
+    description: Customer received a damaged, broken, expired, or malfunctioning product.
+    positive_examples:
+      - "The screen was cracked right out of the box."
+      - "You sent me an expired food product."
+      - "The box was torn open and items are broken."
+    negative_examples:
+      - "Wrong item sent, I got a book instead of a shirt."
+      - "My package hasn't arrived yet."
+    inclusion_rules: "Item received is physically broken, cracked, defective, or unusable."
+    exclusion_rules: "If customer merely asks for a refund without stating condition, classify as return_and_refund."
+
+  - id: wrong_item_received
+    name: Wrong Item Received
+    description: Customer received an incorrect product, size, color, or someone else's order.
+    positive_examples:
+      - "I ordered a blue jacket and received a yellow coffee mug."
+      - "You delivered someone else's package to my address."
+      - "Received 1 item instead of the 3-pack I paid for."
+    negative_examples:
+      - "The item I received doesn't turn on."
+      - "My package was left in the rain."
+    inclusion_rules: "Discrepancy between purchased item and physically delivered item."
+    exclusion_rules: "Item is as described but broken (use damaged_or_defective)."
+
+  - id: payment_and_billing
+    name: Payment and Billing Problem
+    description: Customer reports unauthorized charge, double billing, payment failure, or gift card issues.
+    positive_examples:
+      - "My credit card was charged twice for the same order."
+      - "Payment declined but money was deducted from my account."
+      - "My gift card balance isn't applying at checkout."
+    negative_examples:
+      - "Where is my refund for the returned book?"
+      - "Cancel my subscription billing."
+    inclusion_rules: "Issues with payment method, credit card checkout errors, double deductions, voucher codes."
+    exclusion_rules: "Refunds for completed returns."
+
+  - id: account_and_login
+    name: Account Access & Security
+    description: Customer locked out of account, 2FA issues, password reset, or hacked account concerns.
+    positive_examples:
+      - "I'm locked out of my account and not receiving OTP."
+      - "Someone changed the email address on my account!"
+      - "How do I reset my password if I lost my old phone?"
+    negative_examples:
+      - "My payment method was declined."
+      - "Where is my order?"
+    inclusion_rules: "Account credential problems, authentication, account takeover, profile updates."
+    exclusion_rules: "Billing issues when logged in."
+
+  - id: subscription_and_prime
+    name: Membership & Subscriptions
+    description: Questions or cancellations regarding Amazon Prime, Music, Video, or Kindle subscriptions.
+    positive_examples:
+      - "Why was I charged $139 for Prime renewal without notification?"
+      - "How do I cancel my Prime student trial?"
+      - "Prime video isn't working on my smart TV."
+    negative_examples:
+      - "Cancel my order of batteries."
+      - "Can I return this book?"
+    inclusion_rules: "Subscription benefits, Prime delivery perks, digital membership fees, recurring billing."
+    exclusion_rules: "Physical merchandise cancellation."
+
+  - id: human_agent_request
+    name: Human Escalation Request
+    description: Customer explicitly refuses automated assistance or asks to speak with a human agent or manager.
+    positive_examples:
+      - "Let me speak to a human representative right now."
+      - "Stop sending automated bot replies and get me a supervisor."
+      - "I want to talk to an actual person."
+    negative_examples:
+      - "Please help me, I am frustrated."
+      - "Can someone assist me with my order?"
+    inclusion_rules: "Explicit keyword or demand for human agent, supervisor, or refusal of bot."
+    exclusion_rules: "General requests for help where human isn't demanded."
+
+  - id: general_inquiry_or_other
+    name: General Inquiry / Other
+    description: Out-of-distribution queries, seller feedback, compliments, or queries not fitting specific intents.
+    positive_examples:
+      - "Are you guys hiring in Seattle?"
+      - "Just wanted to say thanks for great service today!"
+      - "Do you sell solar panels for RVs?"
+    negative_examples:
+      - "Where is my package?"
+      - "I need a refund."
+    inclusion_rules: "Ambiguous, out-of-scope, or generic comments not fitting above categories."
+    exclusion_rules: "Actionable support issues covered by other intents."

@@ -1,0 +1,102 @@
+[
+  {
+    "type": "UNSAFE_AUTO_HANDLE",
+    "severity": "CRITICAL",
+    "input": "@AmazonHelp In der Suche standen 2,99 Hab aber 3,99 zahlen m\u00fcssen https://t.co/8nKwWSzymh",
+    "expected": "Action: escalate, Intent: general_inquiry_or_other",
+    "system_output": "Action: auto, Intent: payment_and_billing",
+    "evidence_retrieved": [
+      {
+        "conversation_id": "tw_282751",
+        "similarity": 0.6408,
+        "customer_problem": "Schon wieder kam das Paket nicht an @124285 @AmazonHelp !!!! Was soll die scheisse daf\u00fcr bezahlt man also Prime https://t.co/84NcpVpvuF",
+        "resolution": "@183366 Bitte kontaktiere unseren Kundenservice via https://t.co/ohyvGrpvrY ^RS",
+        "quality": "HIGH",
+        "intent": "general_inquiry_or_other"
+      }
+    ],
+    "why_it_failed": "System auto-handled a query expected to escalate (general_inquiry_or_other). Intent was predicted as payment_and_billing with confidence 0.95.",
+    "hypothesis": "Customer message matched routine support vocabulary and retrieval similarity surpassed the 0.60 threshold despite policy risk.",
+    "potential_fix": "Tighten escalation safety triggers for ambiguous or sensitive account queries."
+  },
+  {
+    "type": "UNSAFE_AUTO_HANDLE",
+    "severity": "CRITICAL",
+    "input": "@AmazonHelp you guys seriously need to get customer service reps w/ some semblance of common sense. You royally screwed up my order! @115821",
+    "expected": "Action: escalate, Intent: human_agent_request",
+    "system_output": "Action: auto, Intent: damaged_or_defective",
+    "evidence_retrieved": [
+      {
+        "conversation_id": "tw_505898",
+        "similarity": 0.8351,
+        "customer_problem": "@AmazonHelp @115830 Your customer service is horrendous, so far the third attempt to resolve an issue is a fail!!!",
+        "resolution": "@236043 Hello Paul! Without divulging any personal information, can you tell me what is going on? We'd like to help! ^WB",
+        "quality": "HIGH",
+        "intent": "general_inquiry_or_other"
+      }
+    ],
+    "why_it_failed": "System auto-handled a query expected to escalate (human_agent_request). Intent was predicted as damaged_or_defective with confidence 0.85.",
+    "hypothesis": "Customer message matched routine support vocabulary and retrieval similarity surpassed the 0.60 threshold despite policy risk.",
+    "potential_fix": "Tighten escalation safety triggers for ambiguous or sensitive account queries."
+  },
+  {
+    "type": "INTENT_MISCLASSIFICATION",
+    "severity": "MEDIUM",
+    "input": "@amazonhelp my order was supposed to ship on friday today is sunday sill nothing. My account wont even login :(",
+    "expected": "Intent: account_and_login",
+    "system_output": "Intent: delivery_delay",
+    "evidence_retrieved": [
+      {
+        "conversation_id": "tw_362467",
+        "similarity": 0.7085,
+        "customer_problem": "@AmazonHelp where is my order it was suppose to get delivered by today havent got it yet",
+        "resolution": "@201849 We apologize for the inconvenience. Please contact us here: https://t.co/vlvfJr4nN9 and we'll help you. ^ZH",
+        "quality": "HIGH",
+        "intent": "delivery_delay"
+      }
+    ],
+    "why_it_failed": "Model classified query into 'delivery_delay' instead of true label 'account_and_login'.",
+    "hypothesis": "Customer phrasing contained overlapping vocabulary with 'delivery_delay' or spanned multiple concerns.",
+    "potential_fix": "Add fine-grained disambiguation guidelines between these two classes in the intent classification prompt."
+  },
+  {
+    "type": "INTENT_MISCLASSIFICATION",
+    "severity": "MEDIUM",
+    "input": "4 Days still no response from @115850 .. on #Redmi4 fraud did by #Amazon @138673 @AmazonHelp https://t.co/ny1BzUmyKo",
+    "expected": "Intent: general_inquiry_or_other",
+    "system_output": "Intent: delivery_delay",
+    "evidence_retrieved": [
+      {
+        "conversation_id": "tw_131772",
+        "similarity": 0.6518,
+        "customer_problem": "@4572 @123289 @119351 @AmazonHelp @115821 @120320 @144769 @145712 @138673 @135980 I purchased a new redmi 4 phone online on 23 oct 2017 Solution k naam pe phone blast aur complain krne pr koi response ni Ye hai mi ka jalwa https://t.co/uHYzGLG8rW",
+        "resolution": "@145711 Apologies for the issues with the product. Please report this to our support team here: https://t.co/vlvfJr4nN9 and we will help you. Also, Please don\u2019t provide your order details as we consider them to be personal info. Our Twitter page is visible to public. ^BS",
+        "quality": "HIGH",
+        "intent": "general_inquiry_or_other"
+      }
+    ],
+    "why_it_failed": "Model classified query into 'delivery_delay' instead of true label 'general_inquiry_or_other'.",
+    "hypothesis": "Customer phrasing contained overlapping vocabulary with 'delivery_delay' or spanned multiple concerns.",
+    "potential_fix": "Add fine-grained disambiguation guidelines between these two classes in the intent classification prompt."
+  },
+  {
+    "type": "INTENT_MISCLASSIFICATION",
+    "severity": "MEDIUM",
+    "input": "@AmazonHelp hi, does live chat not work anymore? I have an issue with an order and I can't find it",
+    "expected": "Intent: general_inquiry_or_other",
+    "system_output": "Intent: human_agent_request",
+    "evidence_retrieved": [
+      {
+        "conversation_id": "tw_583514",
+        "similarity": 0.7746,
+        "customer_problem": "@AmazonHelp hiya could I get a link to amazon live chat",
+        "resolution": "@256784 Hi there! I'll be happy to get you a live chat link, but I need to know which marketplace you ordered from. Was it https://t.co/nUUp5MLhYl, .co.uk, .de, .in or something else? ^SP",
+        "quality": "HIGH",
+        "intent": "general_inquiry_or_other"
+      }
+    ],
+    "why_it_failed": "Model classified query into 'human_agent_request' instead of true label 'general_inquiry_or_other'.",
+    "hypothesis": "Customer phrasing contained overlapping vocabulary with 'human_agent_request' or spanned multiple concerns.",
+    "potential_fix": "Add fine-grained disambiguation guidelines between these two classes in the intent classification prompt."
+  }
+]

@@ -1,0 +1,83 @@
+﻿# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Database & local state
+*.sqlite
+*.sqlite3
+*.db
+local_db.db
+alembic.log
+
+# Large Datasets & Raw Dumps (Do NOT commit 500MB+ Kaggle twcs.csv)
+data/raw/
+*.csv.zip
+twcs.csv
+
+# Models, Embeddings & Large Vector Index Cache
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Node / React Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+dist-ssr/
+*.local
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Temporary logs & scratch directories
+*.log
+logs/
+scratch/
+tmp/
+*.png
